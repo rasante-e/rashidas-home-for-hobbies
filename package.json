@@ -1,0 +1,19 @@
+{
+  "name": "rashidas-home-for-hobbies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasante-e/rashidas-home-for-hobbies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rasante-e/rashidas-home-for-hobbies/issues"
+  },
+  "homepage": "https://github.com/rasante-e/rashidas-home-for-hobbies#readme"
+}
