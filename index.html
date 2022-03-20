@@ -42,10 +42,10 @@
     <p>
         We can't wait until the next True Crime masterpiece, <a href="https://www.amazon.com/Haunted-Road-Atlas-Dangerous-Destinations/dp/1524872105/"> A Haunted Road Atlas</a>, comes out! Keep your eyes glued to this timer so that you can get your copy as soon as it goes onsale!
     </p>
-    <p id="actual-countdown">
+    <div id="actual-countdown">
 
-    </p>
-    <img src="" alt="Image from Amazon">
+    </div>
+    <img src="img/a-haunted-road-atlas.jpg" alt="Image from Amazon">
     <p style="font-size:12px;">Image from Amazon</p>
 </div>
 
@@ -134,19 +134,38 @@ const newItemForm = document.getElementById("list-form");
     //console.log(week[date]);
 //if (date == 0 || 5 || 6) {
     if (date == 5) {
-        dayMessage.innerHTML = "It's " + week[0] +" and finally True Crime Time! Pick something from your wishlist to enjoy.";
+        dayMessage.innerHTML = "It's " + week[date-1] +" and finally True Crime Time! Pick something from your wishlist to enjoy.";
     } else  {
-        dayMessage.innerHTML = "It's only " +week[0]+ " and not yet True Crime Time. Better pick something to make the time pass by!";
+        dayMessage.innerHTML = "It's only " +week[date-1]+ " and not yet True Crime Time. Better pick something to make the time pass by!";
     }
 
     //console.log(date.getDay());
 
 </script>
-
 <!--Script that generates the countdown-->
 <script>
+//Date and time of the book's release
+var bookReleaseDate = new Date("May 31, 2022 12:01:00").getTime();
+//console.log(bookReleaseDate);
 
 
+//Determines the remaining period of time in days, hours, minutes and seconds
+var update = setInterval(function() {
+    var rightNow = new Date().getTime();
+    var difference = bookReleaseDate - rightNow;
+    var dayTimer = Math.floor(difference / (1000 * 60 *60 *24));
+    var hourTimer = Math.floor((difference % (1000*60*60*24)/(1000*60*60)  ));
+    var minuteTimer = Math.floor((difference % (1000*60*60))/(1000*60));
+    var secondTimer = Math.floor((difference % (1000 * 60))/1000);
+
+
+document.getElementById("actual-countdown").innerHTML = dayTimer + " day(s)," 
+    + hourTimer + " hour(s)," + minuteTimer + " minute(s)" + " and " + secondTimer + 
+    " second(s) until the big release!";
+
+    console.log(document.getElementById("actual-countdown").innerHTML);
+}
+);
 </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
